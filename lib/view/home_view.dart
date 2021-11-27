@@ -1,4 +1,5 @@
 import 'package:baz_store_new/constants.dart';
+import 'package:baz_store_new/core/veiw_model/home_view_model.dart';
 import 'package:baz_store_new/view/auth/auth_screen.dart';
 import 'package:baz_store_new/view/widgets/custom_text.dart';
 import 'package:firebase_auth/firebase_auth.dart';
