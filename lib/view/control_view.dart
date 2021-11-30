@@ -1,9 +1,7 @@
 import 'package:baz_store_new/core/veiw_model/auth_view_model.dart';
-import 'package:baz_store_new/core/veiw_model/home_view_model.dart';
+import 'package:baz_store_new/core/veiw_model/control_view_model.dart';
 import 'package:baz_store_new/view/auth/auth_screen.dart';
-import 'package:baz_store_new/view/cart_view.dart';
 import 'package:baz_store_new/view/home_view.dart';
-import 'package:baz_store_new/view/profile_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -14,7 +12,7 @@ class ControlView extends GetWidget<AuthViewModel> {
     return Obx(() {
       return (Get.find<AuthViewModel>().user == null)
           ? AuthScreen()
-          : GetBuilder<HomeViewModel>(builder: (controller) {
+          : GetBuilder<ControlViewModel>(builder: (controller) {
               return Scaffold(
                 body: controller.currentScreen,
                 bottomNavigationBar: bottomNavigationBar(),
@@ -24,8 +22,8 @@ class ControlView extends GetWidget<AuthViewModel> {
   }
 
   Widget bottomNavigationBar() {
-    return GetBuilder<HomeViewModel>(
-      init: HomeViewModel(),
+    return GetBuilder<ControlViewModel>(
+      init: ControlViewModel(),
       builder: (controller) => BottomNavigationBar(
         items: [
           bottomNavigationBarItem(
