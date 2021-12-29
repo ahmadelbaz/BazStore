@@ -119,65 +119,67 @@ class HomeView extends StatelessWidget {
   }
 
   Widget _listViewProducts(Size _size) {
-    return Container(
-      height: _size.height * 0.45,
-      child: ListView.separated(
-        scrollDirection: Axis.horizontal,
-        itemCount: defList.length,
-        itemBuilder: (context, index) {
-          return Container(
-            width: _size.width * 0.4,
-            child: Column(
-              children: [
-                Container(
-                  width: _size.width * 0.4,
-                  decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.all(Radius.circular(50)),
-                    color: Colors.grey.shade100,
-                  ),
-                  child: Container(
-                    height: _size.height * 0.28,
-                    child: Image.asset(
-                      'assets/images/icons/watch.png',
-                      fit: BoxFit.fill,
+    return GetBuilder<HomeViewModel>(builder: (controller) {
+      return Container(
+        height: _size.height * 0.45,
+        child: ListView.separated(
+          scrollDirection: Axis.horizontal,
+          itemCount: controller.productModel.length,
+          itemBuilder: (context, index) {
+            return Container(
+              width: _size.width * 0.4,
+              child: Column(
+                children: [
+                  Container(
+                    width: _size.width * 0.4,
+                    decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.all(Radius.circular(50)),
+                      color: Colors.grey.shade100,
+                    ),
+                    child: Container(
+                      height: _size.height * 0.28,
+                      child: Image.network(
+                        controller.productModel[index].image,
+                        fit: BoxFit.fill,
+                      ),
                     ),
                   ),
-                ),
-                SizedBox(
-                  height: _size.height * 0.01,
-                ),
-                CustomText(
-                  'BeoPlay Speaker',
-                  _size.height * 0.02,
-                  alignment: Alignment.bottomLeft,
-                ),
-                SizedBox(
-                  height: _size.height * 0.02,
-                ),
-                CustomText(
-                  'Bang and Olufsen',
-                  _size.height * 0.02,
-                  color: Colors.grey,
-                  alignment: Alignment.bottomLeft,
-                ),
-                SizedBox(
-                  height: _size.height * 0.02,
-                ),
-                CustomText(
-                  '\$755',
-                  _size.height * 0.02,
-                  color: kMainColor,
-                  alignment: Alignment.bottomLeft,
-                ),
-              ],
-            ),
-          );
-        },
-        separatorBuilder: (context, index) => SizedBox(
-          width: _size.width * 0.055,
+                  SizedBox(
+                    height: _size.height * 0.01,
+                  ),
+                  CustomText(
+                    controller.productModel[index].name,
+                    _size.height * 0.02,
+                    alignment: Alignment.bottomLeft,
+                  ),
+                  SizedBox(
+                    height: _size.height * 0.02,
+                  ),
+                  CustomText(
+                    controller.productModel[index].description,
+                    _size.height * 0.02,
+                    color: Colors.grey,
+                    alignment: Alignment.bottomLeft,
+                  ),
+                  SizedBox(
+                    height: _size.height * 0.02,
+                  ),
+                  CustomText(
+                    controller.productModel[index].price.toString() + '  \$',
+                    _size.height * 0.02,
+                    color: kMainColor,
+                    alignment: Alignment.bottomLeft,
+                  ),
+                ],
+              ),
+            );
+          },
+          separatorBuilder: (context, index) => SizedBox(
+            width: _size.width * 0.055,
+          ),
         ),
-      ),
-    );
+      );
+    });
   }
 }
 
