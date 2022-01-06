@@ -12,7 +12,6 @@ class HomeView extends StatelessWidget {
   // FirebaseAuth _auth = FirebaseAuth.instance;
   // GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
   @override
-  List<String> defList = ['s', 's', 's', 's', 's', 's'];
   Widget build(BuildContext context) {
     final _size = MediaQuery.of(context).size;
     return GetBuilder<HomeViewModel>(builder: (controller) {
