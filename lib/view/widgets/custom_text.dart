@@ -5,9 +5,14 @@ class CustomText extends StatelessWidget {
   final double fontSize;
   final Color color;
   final Alignment alignment;
+  final int maxLine;
+  final double height;
 
-  CustomText(this.text, this.fontSize,
-      {this.color = Colors.black, this.alignment = Alignment.center});
+  const CustomText(this.text, this.fontSize,
+      {this.color = Colors.black,
+      this.alignment = Alignment.center,
+      this.maxLine = 100,
+      this.height = 1});
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +20,8 @@ class CustomText extends StatelessWidget {
       alignment: alignment,
       child: Text(
         text,
-        style: TextStyle(fontSize: fontSize, color: color),
-        maxLines: 1,
+        style: TextStyle(fontSize: fontSize, color: color, height: height),
+        maxLines: maxLine,
       ),
     );
   }
