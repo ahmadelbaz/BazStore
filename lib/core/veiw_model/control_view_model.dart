@@ -24,12 +24,12 @@ class ControlViewModel extends GetxController {
         }
       case 1:
         {
-          _currentScreen = const CartView();
+          _currentScreen = CartView();
           break;
         }
       case 2:
         {
-          _currentScreen = ProfileView();
+          _currentScreen = const ProfileView();
           break;
         }
     }
