@@ -1,6 +1,9 @@
+import 'package:baz_store_new/core/veiw_model/cart_view_model.dart';
+import 'package:baz_store_new/model/cart_product_model.dart';
 import 'package:baz_store_new/model/product_model.dart';
 import 'package:baz_store_new/view/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../constants.dart';
 
@@ -124,21 +127,31 @@ class DetailsView extends StatelessWidget {
                     ),
                   ],
                 ),
-                Container(
-                  padding: const EdgeInsets.all(16),
-                  width: _size.width * 0.4,
-                  height: _size.height * 0.1,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      primary: primaryColor,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                    ),
-                    onPressed: () {},
-                    child: const Text('Add'),
-                  ),
-                ),
+                GetBuilder<CartViewModel>(
+                    init: CartViewModel(),
+                    builder: (controller) {
+                      return Container(
+                        padding: const EdgeInsets.all(16),
+                        width: _size.width * 0.4,
+                        height: _size.height * 0.1,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            primary: primaryColor,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                          ),
+                          onPressed: () {
+                            controller.addProduct(CartProductModel(
+                                name: model.name,
+                                image: model.image,
+                                price: model.price,
+                                quantity: 1));
+                          },
+                          child: const Text('Add'),
+                        ),
+                      );
+                    }),
               ],
             ),
           ),

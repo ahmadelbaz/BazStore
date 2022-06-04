@@ -60,6 +60,14 @@
           }
         },
         {
+          "client_id": "691685384690-b0jrg00pm7lm056ocq7he3mncedfb1c3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.baz_store_new",
+            "certificate_hash": "c403d424cf553f9802924a83c2e35805acb49606"
+          }
+        },
+        {
           "client_id": "691685384690-gk1ci0d1b2sv66b1lt8ffb3ikdal5qpg.apps.googleusercontent.com",
           "client_type": 3
         }
