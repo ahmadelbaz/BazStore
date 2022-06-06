@@ -9,21 +9,25 @@ class ControlView extends GetWidget<AuthViewModel> {
   Widget currentScreen = HomeView();
   @override
   Widget build(BuildContext context) {
-    return Obx(() {
-      return (Get.find<AuthViewModel>().user == null)
-          ? AuthScreen()
-          : GetBuilder<ControlViewModel>(builder: (controller) {
-              return Scaffold(
-                body: controller.currentScreen,
-                bottomNavigationBar: bottomNavigationBar(),
+    return Obx(
+      () {
+        return (Get.find<AuthViewModel>().user == null)
+            ? AuthScreen()
+            : GetBuilder<ControlViewModel>(
+                builder: (controller) {
+                  return Scaffold(
+                    body: controller.currentScreen,
+                    bottomNavigationBar: bottomNavigationBar(),
+                  );
+                },
               );
-            });
-    });
+      },
+    );
   }
 
   Widget bottomNavigationBar() {
     return GetBuilder<ControlViewModel>(
-      init: ControlViewModel(),
+      init: Get.find<ControlViewModel>(),
       builder: (controller) => BottomNavigationBar(
         items: [
           bottomNavigationBarItem(

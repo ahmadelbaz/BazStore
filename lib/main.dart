@@ -4,10 +4,14 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'core/veiw_model/cart_view_model.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Binding().dependencies();
   await Firebase.initializeApp();
+  Get.put(CartViewModel());
+  // Get.find<CartViewModel>();
   runApp(MyApp());
 }
 

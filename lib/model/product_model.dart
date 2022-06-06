@@ -2,7 +2,12 @@ import 'package:baz_store_new/helper/extension.dart';
 import 'package:flutter/material.dart';
 
 class ProductModel {
-  String name = '', image = '', description = '', sized = '', price = '';
+  String productid = '',
+      name = '',
+      image = '',
+      description = '',
+      sized = '',
+      price = '';
   Color color = Colors.white;
 
   ProductModel(
@@ -11,7 +16,8 @@ class ProductModel {
       this.description = '',
       this.color = Colors.white,
       this.sized = '',
-      this.price = ''});
+      this.price = '',
+      this.productid = ''});
 
   ProductModel.fromJson(Map<dynamic, dynamic> map) {
     if (map == null) {
@@ -23,6 +29,7 @@ class ProductModel {
     color = HexColor.fromHex(map['color']);
     sized = map['sized'];
     price = map['price'];
+    productid = map['productid'];
   }
 
   toJson() {
@@ -33,6 +40,7 @@ class ProductModel {
       'color': color,
       'sized': sized,
       'price': price,
+      'productid': productid,
     };
   }
 }

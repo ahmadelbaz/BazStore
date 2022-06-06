@@ -1,5 +1,6 @@
 import 'package:baz_store_new/constants.dart';
 import 'package:baz_store_new/model/cart_product_model.dart';
+import 'package:baz_store_new/model/product_model.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -27,7 +28,8 @@ class CartDatabaseHelper {
     $columnName TEXT NOT NULL,
     $columnImage TEXT NOT NULL,
     $columnQuantity INTEGER NOT NULL,
-    $columnPrice TEXT NOT NULL)
+    $columnPrice TEXT NOT NULL,
+    $columnproductid TEXT NOT NULL)
 ''');
     });
   }
@@ -50,5 +52,11 @@ class CartDatabaseHelper {
       model.toJson(),
       conflictAlgorithm: ConflictAlgorithm.replace,
     );
+  }
+
+  update(CartProductModel model) async {
+    var dbClient = await database;
+    return await dbClient.update(tableCartProduct, model.toJson(),
+        where: '$columnproductid = ?', whereArgs: [model.productid]);
   }
 }

@@ -11,23 +11,61 @@ class CartViewModel extends GetxController {
   List<CartProductModel> _cartProductModel = [];
   List<CartProductModel> get cartProductModel => _cartProductModel;
 
+  double _totalPrice = 0.0;
+  double get totalPrice => _totalPrice;
+  var dbHelper = CartDatabaseHelper.db;
+
   CartViewModel() {
     getAllProducts();
   }
 
   getAllProducts() async {
     _loading.value = true;
-    var dbHelper = CartDatabaseHelper.db;
     _cartProductModel = await dbHelper.getAllProducts();
-
     _loading.value = true;
+    getTotalPrice();
     update();
   }
 
   addProduct(CartProductModel cartProductModel) async {
-    var dbHelper = CartDatabaseHelper.db;
+    if (_cartProductModel.isEmpty) {
+      var dbHelper = CartDatabaseHelper.db;
+      await dbHelper.insert(cartProductModel);
+      _cartProductModel.add(cartProductModel);
+    } else {
+      for (int n = 0; n < _cartProductModel.length; n++) {
+        if (_cartProductModel[n].productid == cartProductModel.productid) {
+          return;
+        } else {}
+      }
+      var dbHelper = CartDatabaseHelper.db;
+      await dbHelper.insert(cartProductModel);
+      _cartProductModel.add(cartProductModel);
+    }
+    _totalPrice +=
+        double.parse(cartProductModel.price) * cartProductModel.quantity;
+    update();
+  }
 
-    await dbHelper.insert(cartProductModel);
+  getTotalPrice() {
+    for (int n = 0; n < _cartProductModel.length; n++) {
+      _totalPrice += double.parse(_cartProductModel[n].price) *
+          _cartProductModel[n].quantity;
+      update();
+    }
+  }
+
+  increaseProduct(int index) {
+    _cartProductModel[index].quantity++;
+    _totalPrice += double.parse(_cartProductModel[index].price);
+    dbHelper.update(_cartProductModel[index]);
+    update();
+  }
+
+  decreaseProduct(int index) {
+    _cartProductModel[index].quantity--;
+    _totalPrice -= double.parse(_cartProductModel[index].price);
+    dbHelper.update(_cartProductModel[index]);
     update();
   }
 }

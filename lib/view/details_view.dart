@@ -128,30 +128,35 @@ class DetailsView extends StatelessWidget {
                   ],
                 ),
                 GetBuilder<CartViewModel>(
-                    init: CartViewModel(),
-                    builder: (controller) {
-                      return Container(
-                        padding: const EdgeInsets.all(16),
-                        width: _size.width * 0.4,
-                        height: _size.height * 0.1,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            primary: primaryColor,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.0),
-                            ),
+                  init: Get.find<CartViewModel>(),
+                  builder: (controller) {
+                    return Container(
+                      padding: const EdgeInsets.all(16),
+                      width: _size.width * 0.4,
+                      height: _size.height * 0.1,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          primary: primaryColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0),
                           ),
-                          onPressed: () {
-                            controller.addProduct(CartProductModel(
-                                name: model.name,
-                                image: model.image,
-                                price: model.price,
-                                quantity: 1));
-                          },
-                          child: const Text('Add'),
                         ),
-                      );
-                    }),
+                        onPressed: () {
+                          controller.addProduct(
+                            CartProductModel(
+                              name: model.name,
+                              image: model.image,
+                              price: model.price,
+                              quantity: 1,
+                              productid: model.productid,
+                            ),
+                          );
+                        },
+                        child: const Text('Add'),
+                      ),
+                    );
+                  },
+                ),
               ],
             ),
           ),

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
-final String tableCartProduct = 'cartProduct';
-final String columnName = 'name';
-final String columnImage = 'image';
-final String columnQuantity = 'quantity';
-final String columnPrice = 'price';
+const String tableCartProduct = 'cartProduct';
+const String columnName = 'name';
+const String columnImage = 'image';
+const String columnQuantity = 'quantity';
+const String columnPrice = 'price';
+const String columnproductid = 'productid';
 
 const kMainColor = Color(0xFFC0E8D5);
 const kSecondaryColor = Color(0xFFECEFF1);

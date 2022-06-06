@@ -1,9 +1,14 @@
 class CartProductModel {
-  String name = '', image = '', price = '';
+  String productid = '', name = '', image = '', price = '';
   int quantity = 0;
 
-  CartProductModel(
-      {this.name = '', this.image = '', this.quantity = 0, this.price = ''});
+  CartProductModel({
+    this.name = '',
+    this.image = '',
+    this.quantity = 0,
+    this.price = '',
+    this.productid = '',
+  });
 
   CartProductModel.fromJson(Map<dynamic, dynamic> map) {
     if (map == null) {
@@ -13,6 +18,7 @@ class CartProductModel {
     image = map['image'];
     quantity = map['quantity'];
     price = map['price'];
+    productid = map['productid'];
   }
 
   toJson() {
@@ -21,6 +27,7 @@ class CartProductModel {
       'image': image,
       'quantity': quantity,
       'price': price,
+      'productid': productid,
     };
   }
 }
