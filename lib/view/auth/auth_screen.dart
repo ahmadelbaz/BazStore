@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:baz_store_new/core/veiw_model/auth_view_model.dart';
 import 'package:baz_store_new/view/auth/register_screen.dart';

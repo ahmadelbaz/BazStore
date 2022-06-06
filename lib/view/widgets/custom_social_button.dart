@@ -6,7 +6,7 @@ class CustomSocialButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
 
-  CustomSocialButton(this.imagePath, this.text, this.onPressed);
+  const CustomSocialButton(this.imagePath, this.text, this.onPressed);
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;

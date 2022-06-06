@@ -61,7 +61,7 @@ class CartView extends StatelessWidget {
                                           onTap: () {
                                             controller.increaseProduct(index);
                                           },
-                                          child: Icon(
+                                          child: const Icon(
                                             Icons.add,
                                             color: Colors.black,
                                           ),
@@ -87,7 +87,7 @@ class CartView extends StatelessWidget {
                                             onTap: () {
                                               controller.decreaseProduct(index);
                                             },
-                                            child: Icon(
+                                            child: const Icon(
                                               Icons.minimize,
                                               color: Colors.black,
                                             ),

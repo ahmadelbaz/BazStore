@@ -7,13 +7,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-import 'auth/auth_screen.dart';
-
 class HomeView extends StatelessWidget {
-  HomeView({Key? key}) : super(key: key);
+  const HomeView({Key? key}) : super(key: key);
 
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-  final GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
+  // final FirebaseAuth _auth = FirebaseAuth.instance;
+  // final GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
   @override
   Widget build(BuildContext context) {
     final _size = MediaQuery.of(context).size;
@@ -66,34 +64,21 @@ class HomeView extends StatelessWidget {
   }
 
   Widget _searchTextFormField(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Container(
-          width: MediaQuery.of(context).size.width * 0.75,
-          decoration: BoxDecoration(
-            borderRadius: const BorderRadius.all(Radius.circular(20)),
-            color: Colors.grey.shade200,
-          ),
-          child: TextFormField(
-            decoration: const InputDecoration(
-              border: InputBorder.none,
-              prefixIcon: Icon(
-                Icons.search,
-                color: Colors.black,
-              ),
-            ),
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.75,
+      decoration: BoxDecoration(
+        borderRadius: const BorderRadius.all(Radius.circular(20)),
+        color: Colors.grey.shade200,
+      ),
+      child: TextFormField(
+        decoration: const InputDecoration(
+          border: InputBorder.none,
+          prefixIcon: Icon(
+            Icons.search,
+            color: Colors.black,
           ),
         ),
-        IconButton(
-            tooltip: 'Log out',
-            onPressed: () {
-              _auth.signOut();
-              _googleSignIn.signOut();
-              Get.offAll(() => AuthScreen());
-            },
-            icon: const Icon(Icons.logout))
-      ],
+      ),
     );
   }
 

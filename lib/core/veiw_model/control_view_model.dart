@@ -24,7 +24,7 @@ class ControlViewModel extends GetxController {
         }
       case 1:
         {
-          _currentScreen = CartView();
+          _currentScreen = const CartView();
           break;
         }
       case 2:

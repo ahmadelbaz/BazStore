@@ -14,6 +14,7 @@ class ControlView extends GetWidget<AuthViewModel> {
         return (Get.find<AuthViewModel>().user == null)
             ? AuthScreen()
             : GetBuilder<ControlViewModel>(
+                init: ControlViewModel(),
                 builder: (controller) {
                   return Scaffold(
                     body: controller.currentScreen,

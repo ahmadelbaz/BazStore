@@ -1,6 +1,5 @@
 import 'package:baz_store_new/constants.dart';
 import 'package:baz_store_new/model/cart_product_model.dart';
-import 'package:baz_store_new/model/product_model.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 

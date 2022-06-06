@@ -9,7 +9,7 @@ class CustomTextField extends StatelessWidget {
   final onSave;
   final validator;
 
-  CustomTextField(
+  const CustomTextField(
       this.hint, this.icon, this.errorMessage, this.onSave, this.validator);
 
   @override
@@ -32,15 +32,15 @@ class CustomTextField extends StatelessWidget {
           fillColor: kSecondaryColor,
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20),
-            borderSide: BorderSide(color: Colors.white),
+            borderSide: const BorderSide(color: Colors.white),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20),
-            borderSide: BorderSide(color: Colors.white),
+            borderSide: const BorderSide(color: Colors.white),
           ),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20),
-            borderSide: BorderSide(color: Colors.white),
+            borderSide: const BorderSide(color: Colors.white),
           ),
         ),
       ),

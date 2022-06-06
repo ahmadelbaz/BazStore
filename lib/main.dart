@@ -11,6 +11,7 @@ void main() async {
   Binding().dependencies();
   await Firebase.initializeApp();
   Get.put(CartViewModel());
+  // Get.put(ControlViewModel());
   // Get.find<CartViewModel>();
   runApp(MyApp());
 }
