@@ -1,3 +1,4 @@
+import 'package:baz_store_new/core/veiw_model/home_view_model.dart';
 import 'package:baz_store_new/helper/binding.dart';
 import 'package:baz_store_new/view/control_view.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -11,6 +12,7 @@ void main() async {
   Binding().dependencies();
   await Firebase.initializeApp();
   Get.put(CartViewModel());
+  Get.put(HomeViewModel());
   // Get.put(ControlViewModel());
   // Get.find<CartViewModel>();
   runApp(MyApp());

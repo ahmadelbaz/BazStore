@@ -122,5 +122,7 @@ class AuthViewModel extends GetxController {
     setUser(userModel);
   }
 
-  void setUser(UserModel userModel) async {}
+  void setUser(UserModel userModel) async {
+    await localStorageData.setUser(userModel);
+  }
 }
