@@ -47,6 +47,16 @@ class CartViewModel extends GetxController {
     update();
   }
 
+  deleteProduct(int index) {
+    _totalPrice -= double.parse(_cartProductModel[index].price) *
+        _cartProductModel[index].quantity;
+    dbHelper.delete(_cartProductModel[index]);
+    Get.snackbar('Item deleted',
+        '${_cartProductModel[index].name} deleted from your cart.');
+    update();
+    _cartProductModel.removeAt(index);
+  }
+
   getTotalPrice() {
     for (int n = 0; n < _cartProductModel.length; n++) {
       _totalPrice += double.parse(_cartProductModel[n].price) *

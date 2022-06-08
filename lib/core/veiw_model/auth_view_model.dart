@@ -28,27 +28,6 @@ class AuthViewModel extends GetxController {
     _user.bindStream(_auth.authStateChanges());
   }
 
-  // void googleSignInMethod() async {
-  //   try {
-  //     final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
-  //     print('this is google user $googleUser');
-
-  //     if (googleUser != null) {
-  //       GoogleSignInAuthentication googleSignInAuthentication =
-  //           await googleUser.authentication;
-  //       final AuthCredential credential = GoogleAuthProvider.credential(
-  //         idToken: googleSignInAuthentication.idToken,
-  //         accessToken: googleSignInAuthentication.accessToken,
-  //       );
-
-  //       await _auth.signInWithCredential(credential);
-  //       // Get.offAll(HomeView());
-  //     }
-  //   } catch (error) {
-  //     print(error);
-  //   }
-  // }
-
   void googleSignInMethod() async {
     // Trigger the authentication flow
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
@@ -117,7 +96,10 @@ class AuthViewModel extends GetxController {
 
   void saveUser(UserCredential user, String name) async {
     UserModel userModel = UserModel(
-        userId: user.user!.uid, email: user.user!.email!, name: name, pic: '');
+        userId: user.user!.uid,
+        email: user.user!.email!,
+        name: name,
+        pic: user.user!.photoURL as String);
     await FireStoreUser().addUserToFireStore(userModel);
     setUser(userModel);
   }

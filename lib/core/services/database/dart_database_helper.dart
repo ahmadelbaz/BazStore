@@ -58,4 +58,10 @@ class CartDatabaseHelper {
     return await dbClient.update(tableCartProduct, model.toJson(),
         where: '$columnproductid = ?', whereArgs: [model.productid]);
   }
+
+  delete(CartProductModel model) async {
+    var dbClient = await database;
+    return await dbClient.delete(tableCartProduct,
+        where: '$columnproductid = ?', whereArgs: [model.productid]);
+  }
 }
