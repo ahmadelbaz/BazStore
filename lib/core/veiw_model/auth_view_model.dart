@@ -58,7 +58,6 @@ class AuthViewModel extends GetxController {
         await FireStoreUser()
             .getCurentUser(value.user!.uid)
             .then((value) async {
-          // Map<dynamic, dynamic> map = value.data() as Map<String, dynamic>;
           setUser(UserModel.fromJson(value.data() as Map<dynamic, dynamic>));
         });
       });

@@ -22,9 +22,9 @@ class CartView extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
                       Image(
-                        image: AssetImage('assets/images/icons/empty.jpg'),
+                        image: AssetImage('assets/images/icons/cart.png'),
                       ),
-                      CustomText('Empty Cart', 28)
+                      CustomText('Empty Cart', 16)
                     ],
                   ),
                 )
@@ -45,7 +45,10 @@ class CartView extends StatelessWidget {
                               onDismissed: (direction) {
                                 controller.deleteProduct(index);
                               },
-                              background: Container(color: Colors.red),
+                              background: Container(
+                                color: Colors.red,
+                                child: const Icon(Icons.cancel),
+                              ),
                               child: SizedBox(
                                 height: deviceSize.height * 0.175,
                                 child: Row(

@@ -4,5 +4,10 @@ E-commerce Flutter app using GetX, firestore, firebase authentication and many o
 
 ## Screenshots
 
-![ScreenShot](1.jfif)
-![ScreenShot](2.jfif)
+![ScreenShot](1.jpg)
+![ScreenShot](2.jpg)
+![ScreenShot](3.jpg)
+![ScreenShot](4.jpg)
+![ScreenShot](5.jpg)
+![ScreenShot](6.jpg)
+![ScreenShot](7.jpg)

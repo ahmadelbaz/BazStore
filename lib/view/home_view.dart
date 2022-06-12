@@ -128,9 +128,11 @@ class HomeView extends StatelessWidget {
             itemBuilder: (context, index) {
               return GestureDetector(
                 onTap: () {
-                  Get.to(DetailsView(
-                    model: controller.productModel[index],
-                  ));
+                  Get.to(
+                    DetailsView(
+                      model: controller.productModel[index],
+                    ),
+                  );
                 },
                 child: SizedBox(
                   width: _size.width * 0.4,
@@ -195,17 +197,3 @@ class HomeView extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-// logout 
-
-// ElevatedButton(
-//             onPressed: () {
-//               _auth.signOut();
-//               _googleSignIn.signOut();
-//               Get.offAll(() => AuthScreen());
-//             },
-//             child: const Text('Log out')),

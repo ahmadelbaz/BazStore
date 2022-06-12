@@ -1,4 +1,5 @@
 import 'package:baz_store_new/constants.dart';
+import 'package:baz_store_new/core/veiw_model/control_view_model.dart';
 import 'package:baz_store_new/core/veiw_model/profile_view_model.dart';
 import 'package:baz_store_new/view/widgets/custom_list_tile.dart';
 import 'package:baz_store_new/view/widgets/custom_text.dart';
@@ -71,10 +72,16 @@ class ProfileView extends StatelessWidget {
                   CustomListTile('Order History', () {}),
                   CustomListTile('Cards', () {}),
                   CustomListTile('Notifications', () {}),
-                  CustomListTile(
-                    'Log out',
-                    () {
-                      controller.signOut();
+                  GetBuilder<ControlViewModel>(
+                    init: ControlViewModel(),
+                    builder: (controller2) {
+                      return CustomListTile(
+                        'Log out',
+                        () {
+                          controller2.changeSelectedValue(0);
+                          controller.signOut();
+                        },
+                      );
                     },
                   ),
                 ],

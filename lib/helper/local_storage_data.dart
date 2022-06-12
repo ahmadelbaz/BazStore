@@ -11,7 +11,6 @@ class LocalStorageData extends GetxController {
       UserModel userModel = await _getUser();
       return userModel;
     } catch (e) {
-      print(e.toString());
       throw Exception;
     }
   }
