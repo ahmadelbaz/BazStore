@@ -2,10 +2,8 @@ import 'package:baz_store_new/constants.dart';
 import 'package:baz_store_new/core/veiw_model/home_view_model.dart';
 import 'package:baz_store_new/view/details_view.dart';
 import 'package:baz_store_new/view/widgets/custom_text.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -14,7 +12,6 @@ class HomeView extends StatelessWidget {
   // final GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
   @override
   Widget build(BuildContext context) {
-    final _size = MediaQuery.of(context).size;
     return GetBuilder<HomeViewModel>(
       init: Get.find<HomeViewModel>(),
       builder: (controller) => controller.loading.value == true
@@ -22,39 +19,39 @@ class HomeView extends StatelessWidget {
           : Scaffold(
               body: Container(
                 padding: EdgeInsets.only(
-                    top: _size.height * 0.12,
-                    left: _size.height * 0.025,
-                    right: _size.height * 0.025),
+                    top: deviceSize.height * 0.12,
+                    left: deviceSize.height * 0.025,
+                    right: deviceSize.height * 0.025),
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
                       _searchTextFormField(context),
                       SizedBox(
-                        height: _size.height * 0.05,
+                        height: deviceSize.height * 0.05,
                       ),
                       CustomText(
                         'Categories',
-                        _size.height * 0.02,
+                        deviceSize.height * 0.02,
                         alignment: Alignment.bottomLeft,
                       ),
                       SizedBox(
-                        height: _size.height * 0.03,
+                        height: deviceSize.height * 0.03,
                       ),
-                      _listViewCategory(_size),
+                      _listViewCategory(deviceSize),
                       SizedBox(
-                        height: _size.height * 0.05,
+                        height: deviceSize.height * 0.05,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          CustomText('Best Selling', _size.height * 0.02),
-                          CustomText('See all', _size.height * 0.02),
+                          CustomText('Best Selling', deviceSize.height * 0.02),
+                          CustomText('See all', deviceSize.height * 0.02),
                         ],
                       ),
                       SizedBox(
-                        height: _size.height * 0.03,
+                        height: deviceSize.height * 0.03,
                       ),
-                      _listViewProducts(_size),
+                      _listViewProducts(deviceSize),
                     ],
                   ),
                 ),
@@ -65,7 +62,7 @@ class HomeView extends StatelessWidget {
 
   Widget _searchTextFormField(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width * 0.75,
+      width: deviceSize.width * 0.75,
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(20)),
         color: Colors.grey.shade200,

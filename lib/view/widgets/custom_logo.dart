@@ -1,3 +1,4 @@
+import 'package:baz_store_new/constants.dart';
 import 'package:flutter/material.dart';
 
 class CustomLogo extends StatelessWidget {
@@ -5,16 +6,15 @@ class CustomLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
     return Padding(
-      padding: EdgeInsets.only(top: size.height * 0.01),
+      padding: EdgeInsets.only(top: deviceSize.height * 0.01),
       child: Column(
         children: [
           const Image(image: AssetImage('assets/images/icons/cart.png')),
           Text(
             'BazStore',
-            style:
-                TextStyle(fontFamily: 'Lobster', fontSize: size.height * 0.04),
+            style: TextStyle(
+                fontFamily: 'Lobster', fontSize: deviceSize.height * 0.04),
           ),
         ],
       ),

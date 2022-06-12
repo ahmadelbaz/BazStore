@@ -1,4 +1,3 @@
-
 import 'package:baz_store_new/core/veiw_model/auth_view_model.dart';
 import 'package:baz_store_new/view/auth/register_screen.dart';
 import 'package:baz_store_new/view/widgets/custom_logo.dart';
@@ -15,7 +14,6 @@ class AuthScreen extends GetWidget<AuthViewModel> {
 
   @override
   Widget build(BuildContext context) {
-    final _size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: kMainColor,
@@ -28,11 +26,11 @@ class AuthScreen extends GetWidget<AuthViewModel> {
           children: [
             const CustomLogo(),
             SizedBox(
-              height: _size.height * 0.02,
+              height: deviceSize.height * 0.02,
             ),
-            Center(child: CustomText('Login', _size.height * 0.03)),
+            Center(child: CustomText('Login', deviceSize.height * 0.03)),
             SizedBox(
-              height: _size.height * 0.03,
+              height: deviceSize.height * 0.03,
             ),
             CustomTextField('Enter your email', Icons.email, 'E-mail is empty',
                 (value) {
@@ -43,7 +41,7 @@ class AuthScreen extends GetWidget<AuthViewModel> {
               }
             }),
             SizedBox(
-              height: _size.height * 0.03,
+              height: deviceSize.height * 0.03,
             ),
             CustomTextField(
                 'Enter your password', Icons.lock, 'Password is empty',
@@ -55,13 +53,13 @@ class AuthScreen extends GetWidget<AuthViewModel> {
               }
             }),
             SizedBox(
-              height: _size.height * 0.06,
+              height: deviceSize.height * 0.06,
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: _size.width * 0.2),
+              padding: EdgeInsets.symmetric(horizontal: deviceSize.width * 0.2),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  minimumSize: Size.fromHeight(_size.height * 0.07),
+                  minimumSize: Size.fromHeight(deviceSize.height * 0.07),
                   primary: Colors.black,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20)),
@@ -73,44 +71,38 @@ class AuthScreen extends GetWidget<AuthViewModel> {
                     controller.signInWithEmailAndPassword();
                   }
                 },
-                child: CustomText('Login', _size.height * 0.02,
+                child: CustomText('Login', deviceSize.height * 0.02,
                     color: Colors.white),
               ),
             ),
             SizedBox(
-              height: _size.height * 0.04,
+              height: deviceSize.height * 0.04,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CustomText('Don\'t have an account ? ', _size.height * 0.02,
+                CustomText(
+                    'Don\'t have an account ? ', deviceSize.height * 0.02,
                     color: Colors.white),
-                // GestureDetector(
-                //     onTap: () {
-                //       log('go to sign up screen');
-                //       Get.to(RegisterScreen());
-                //     },
-                //     child: CustomText(
-                //         'Sign Up', _size.height * 0.02, Colors.blue)),
                 TextButton(
                   onPressed: () {
                     Get.to(() => RegisterScreen());
                   },
                   child: Text(
                     'Sign Up',
-                    style: TextStyle(fontSize: _size.height * 0.02),
+                    style: TextStyle(fontSize: deviceSize.height * 0.02),
                   ),
                 ),
               ],
             ),
             SizedBox(
-              height: _size.height * 0.04,
+              height: deviceSize.height * 0.04,
             ),
             Center(
-              child: CustomText('-OR-', _size.height * 0.02),
+              child: CustomText('-OR-', deviceSize.height * 0.02),
             ),
             SizedBox(
-              height: _size.height * 0.02,
+              height: deviceSize.height * 0.02,
             ),
             CustomSocialButton(
               'assets/images/icons/google.png',

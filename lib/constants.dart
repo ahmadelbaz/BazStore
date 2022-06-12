@@ -12,3 +12,5 @@ const kSecondaryColor = Color(0xFFECEFF1);
 const primaryColor = Color.fromRGBO(0, 197, 105, 1);
 
 const cashedUserData = 'CASHED_USER_DATA';
+
+Size deviceSize = const Size(0, 0);

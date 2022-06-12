@@ -14,25 +14,26 @@ class DetailsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _size = MediaQuery.of(context).size;
     return Scaffold(
       body: Column(
         children: [
           SizedBox(
-            width: _size.width,
-            height: _size.height * 0.4,
+            width: deviceSize.width,
+            height: deviceSize.height * 0.4,
             child: Image.network(
               model.image,
               fit: BoxFit.fill,
             ),
           ),
           SizedBox(
-            height: _size.height * 0.03,
+            height: deviceSize.height * 0.03,
           ),
           Expanded(
             child: SingleChildScrollView(
               child: Container(
-                padding: const EdgeInsets.all(15),
+                padding: EdgeInsets.symmetric(
+                    horizontal: deviceSize.width * .044,
+                    vertical: deviceSize.height * .02),
                 child: Column(
                   children: [
                     CustomText(
@@ -41,14 +42,16 @@ class DetailsView extends StatelessWidget {
                       alignment: Alignment.centerLeft,
                     ),
                     SizedBox(
-                      height: _size.height * 0.03,
+                      height: deviceSize.height * 0.03,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Container(
-                          padding: const EdgeInsets.all(16),
-                          width: _size.width * 0.4,
+                          padding: EdgeInsets.symmetric(
+                              horizontal: deviceSize.width * .044,
+                              vertical: deviceSize.height * .02),
+                          width: deviceSize.width * 0.4,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
                             border: Border.all(color: Colors.grey),
@@ -62,8 +65,10 @@ class DetailsView extends StatelessWidget {
                           ),
                         ),
                         Container(
-                          padding: const EdgeInsets.all(16),
-                          width: _size.width * 0.4,
+                          padding: EdgeInsets.symmetric(
+                              horizontal: deviceSize.width * .044,
+                              vertical: deviceSize.height * .02),
+                          width: deviceSize.width * 0.4,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
                             border: Border.all(color: Colors.grey),
@@ -73,9 +78,11 @@ class DetailsView extends StatelessWidget {
                             children: [
                               const CustomText('Color', 16),
                               Container(
-                                width: 30,
-                                height: 20,
-                                padding: const EdgeInsets.all(12),
+                                width: deviceSize.width * 0.083,
+                                height: deviceSize.height * 0.025,
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: deviceSize.width * .033,
+                                    vertical: deviceSize.height * .015),
                                 decoration: BoxDecoration(
                                     border: Border.all(color: Colors.grey),
                                     borderRadius: BorderRadius.circular(15),
@@ -87,7 +94,7 @@ class DetailsView extends StatelessWidget {
                       ],
                     ),
                     SizedBox(
-                      height: _size.height * 0.02,
+                      height: deviceSize.height * 0.02,
                     ),
                     const CustomText(
                       'Details',
@@ -95,13 +102,13 @@ class DetailsView extends StatelessWidget {
                       alignment: Alignment.centerLeft,
                     ),
                     SizedBox(
-                      height: _size.height * 0.02,
+                      height: deviceSize.height * 0.02,
                     ),
                     CustomText(
                       model.description,
                       14,
                       alignment: Alignment.centerLeft,
-                      height: 2,
+                      height: deviceSize.height * 0.0025,
                     ),
                   ],
                 ),
@@ -109,7 +116,9 @@ class DetailsView extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(20),
+            padding: EdgeInsets.symmetric(
+                horizontal: deviceSize.width * .055,
+                vertical: deviceSize.height * .025),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -131,9 +140,11 @@ class DetailsView extends StatelessWidget {
                   init: Get.find<CartViewModel>(),
                   builder: (controller) {
                     return Container(
-                      padding: const EdgeInsets.all(16),
-                      width: _size.width * 0.4,
-                      height: _size.height * 0.1,
+                      padding: EdgeInsets.symmetric(
+                          horizontal: deviceSize.width * .044,
+                          vertical: deviceSize.height * .02),
+                      width: deviceSize.width * 0.4,
+                      height: deviceSize.height * 0.1,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           primary: primaryColor,

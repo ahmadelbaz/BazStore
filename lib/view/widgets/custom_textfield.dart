@@ -9,19 +9,28 @@ class CustomTextField extends StatelessWidget {
   final onSave;
   final validator;
 
-  const CustomTextField(
+  CustomTextField(
       this.hint, this.icon, this.errorMessage, this.onSave, this.validator);
+
+  late FocusNode passwordFocusNode = FocusNode();
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: size.width * 0.03),
+      padding: EdgeInsets.symmetric(horizontal: deviceSize.width * 0.03),
       child: TextFormField(
         onSaved: onSave,
         validator: validator,
         cursorColor: kMainColor,
         obscureText: hint == 'Enter your password' ? true : false,
+        autofocus: hint == 'Enter your password' ? false : true,
+        focusNode: hint == 'Enter your password' ? passwordFocusNode : null,
+        textInputAction: TextInputAction.next,
+        onFieldSubmitted: hint != 'Enter your password'
+            ? (term) {
+                passwordFocusNode.requestFocus();
+              }
+            : null,
         decoration: InputDecoration(
           hintText: hint,
           prefixIcon: Icon(

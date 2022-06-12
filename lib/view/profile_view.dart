@@ -1,3 +1,4 @@
+import 'package:baz_store_new/constants.dart';
 import 'package:baz_store_new/core/veiw_model/profile_view_model.dart';
 import 'package:baz_store_new/view/widgets/custom_list_tile.dart';
 import 'package:baz_store_new/view/widgets/custom_text.dart';
@@ -23,10 +24,10 @@ class ProfileView extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Container(
-                        width: 120,
-                        height: 120,
+                        width: deviceSize.width * 0.33,
+                        height: deviceSize.height * 0.15,
                         decoration: BoxDecoration(
-                          color: Colors.red,
+                          color: Colors.grey,
                           borderRadius: const BorderRadius.all(
                             Radius.circular(100),
                           ),
@@ -62,17 +63,20 @@ class ProfileView extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 100,
+                  SizedBox(
+                    height: deviceSize.height * 0.125,
                   ),
                   CustomListTile('Edit Profile', () {}),
                   CustomListTile('Shipping Address', () {}),
                   CustomListTile('Order History', () {}),
                   CustomListTile('Cards', () {}),
                   CustomListTile('Notifications', () {}),
-                  CustomListTile('Log out', () {
-                    controller.signOut();
-                  }),
+                  CustomListTile(
+                    'Log out',
+                    () {
+                      controller.signOut();
+                    },
+                  ),
                 ],
               ),
             ),

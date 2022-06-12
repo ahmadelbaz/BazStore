@@ -11,7 +11,6 @@ class RegisterScreen extends GetWidget<AuthViewModel> {
   final GlobalKey<FormState> _globalKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    final _size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: kMainColor,
@@ -24,11 +23,11 @@ class RegisterScreen extends GetWidget<AuthViewModel> {
           children: [
             const CustomLogo(),
             SizedBox(
-              height: _size.height * 0.02,
+              height: deviceSize.height * 0.02,
             ),
-            Center(child: CustomText('Sign Up', _size.height * 0.03)),
+            Center(child: CustomText('Sign Up', deviceSize.height * 0.03)),
             SizedBox(
-              height: _size.height * 0.03,
+              height: deviceSize.height * 0.03,
             ),
             CustomTextField(
               'Enter your Username',
@@ -42,7 +41,7 @@ class RegisterScreen extends GetWidget<AuthViewModel> {
               },
             ),
             SizedBox(
-              height: _size.height * 0.03,
+              height: deviceSize.height * 0.03,
             ),
             CustomTextField(
               'Enter your email',
@@ -56,7 +55,7 @@ class RegisterScreen extends GetWidget<AuthViewModel> {
               },
             ),
             SizedBox(
-              height: _size.height * 0.03,
+              height: deviceSize.height * 0.03,
             ),
             CustomTextField(
                 'Enter your password', Icons.lock, 'Password is empty',
@@ -68,13 +67,13 @@ class RegisterScreen extends GetWidget<AuthViewModel> {
               }
             }),
             SizedBox(
-              height: _size.height * 0.06,
+              height: deviceSize.height * 0.06,
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: _size.width * 0.2),
+              padding: EdgeInsets.symmetric(horizontal: deviceSize.width * 0.2),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  minimumSize: Size.fromHeight(_size.height * 0.07),
+                  minimumSize: Size.fromHeight(deviceSize.height * 0.07),
                   primary: Colors.black,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20)),
@@ -86,17 +85,18 @@ class RegisterScreen extends GetWidget<AuthViewModel> {
                     controller.createAccountWithEmailAndPassword();
                   }
                 },
-                child: CustomText('Sign Up', _size.height * 0.02,
+                child: CustomText('Sign Up', deviceSize.height * 0.02,
                     color: Colors.white),
               ),
             ),
             SizedBox(
-              height: _size.height * 0.04,
+              height: deviceSize.height * 0.04,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CustomText('Already have an account ? ', _size.height * 0.02,
+                CustomText(
+                    'Already have an account ? ', deviceSize.height * 0.02,
                     color: Colors.white),
                 TextButton(
                   onPressed: () {
@@ -104,7 +104,7 @@ class RegisterScreen extends GetWidget<AuthViewModel> {
                   },
                   child: Text(
                     'Login',
-                    style: TextStyle(fontSize: _size.height * 0.02),
+                    style: TextStyle(fontSize: deviceSize.height * 0.02),
                   ),
                 ),
               ],

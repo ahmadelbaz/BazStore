@@ -1,6 +1,8 @@
 import 'package:baz_store_new/view/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 
+import '../../constants.dart';
+
 class CustomSocialButton extends StatelessWidget {
   final String imagePath;
   final String text;
@@ -9,12 +11,11 @@ class CustomSocialButton extends StatelessWidget {
   const CustomSocialButton(this.imagePath, this.text, this.onPressed);
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: size.width * 0.2),
+      padding: EdgeInsets.symmetric(horizontal: deviceSize.width * 0.2),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          minimumSize: Size.fromHeight(size.height * 0.07),
+          minimumSize: Size.fromHeight(deviceSize.height * 0.07),
           primary: Colors.white,
           onPrimary: Colors.black,
           shape:
@@ -25,15 +26,15 @@ class CustomSocialButton extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: EdgeInsets.only(left: size.height * 0.01),
+              padding: EdgeInsets.only(left: deviceSize.height * 0.01),
               child: Image(
                 image: AssetImage(imagePath),
               ),
             ),
             SizedBox(
-              width: size.width * 0.03,
+              width: deviceSize.width * 0.03,
             ),
-            CustomText(text, size.height * 0.018),
+            CustomText(text, deviceSize.height * 0.018),
           ],
         ),
       ),

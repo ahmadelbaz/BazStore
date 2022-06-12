@@ -5,8 +5,10 @@ import 'package:baz_store_new/view/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../constants.dart';
+
 class ControlView extends GetWidget<AuthViewModel> {
-  Widget currentScreen = HomeView();
+  Widget currentScreen = const HomeView();
   @override
   Widget build(BuildContext context) {
     return Obx(
@@ -55,7 +57,7 @@ class ControlView extends GetWidget<AuthViewModel> {
       icon: Image.asset(
         imageName,
         fit: BoxFit.contain,
-        width: 20,
+        width: deviceSize.width * 0.055,
       ),
     );
   }
