@@ -6,12 +6,12 @@ E-commerce Flutter app using GetX, MVVM, firestore, firebase authentication and 
 
 In this project we created E-commerce app useing Flutter & Dart
 
->> GetX State management & routing system
->> MVVM architecture pattern
->> Firestore as Backend
->> Sqflite & shared preference for local database
->> Firebase storage for images
->> Beautiful UI 
+- GetX State management & routing system
+- MVVM architecture pattern
+- Firestore as Backend
+- Sqflite & shared preference for local database
+- Firebase storage for images
+- Beautiful UI 
 
 ## Screenshots
 
