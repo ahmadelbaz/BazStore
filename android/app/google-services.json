@@ -37,6 +37,43 @@
     },
     {
       "client_info": {
+        "mobilesdk_app_id": "1:691685384690:android:7ab03ac15025cc86dd8b6b",
+        "android_client_info": {
+          "package_name": "com.ahmadelbaz.bazstore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "691685384690-8d6cfgmai9qad5rk1mcgevdfrq6mr9kn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ahmadelbaz.bazstore",
+            "certificate_hash": "c403d424cf553f9802924a83c2e35805acb49606"
+          }
+        },
+        {
+          "client_id": "691685384690-gk1ci0d1b2sv66b1lt8ffb3ikdal5qpg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-CXvJZc6dAozaaY54hc8tH2A3qZop-20"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "691685384690-gk1ci0d1b2sv66b1lt8ffb3ikdal5qpg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:691685384690:android:7351815d7f20ad51dd8b6b",
         "android_client_info": {
           "package_name": "com.example.baz_store_new"

@@ -1,4 +1,4 @@
-package com.example.baz_store_new
+package com.ahmadelbaz.bazstore
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -1,7 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.baz_store_new">
+    package="com.ahmadelbaz.bazstore">
+    <uses-permission android:name="android.permission.INTERNET" />
    <application
-        android:label="BazStore"
+        android:label="Baz Store"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

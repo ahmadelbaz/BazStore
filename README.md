@@ -13,6 +13,11 @@ In this project we created E-commerce app useing Flutter & Dart
 - Firebase storage for images
 - Beautiful UI 
 
+## Try it
+
+- You can try the app on android device with this apk file:
+- https://www.dropbox.com/s/429g3ugrutigrss/BazStore.apk?dl=1
+
 ## Screenshots
 
 ![ScreenShot](1.jpg)
